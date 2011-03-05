@@ -1,0 +1,20 @@
+<div id="search">
+	<form action="/" method="get" accept-charset="utf-8">
+		<fieldset>			
+			<input type="text" name="search" placeholder="Search" value="<%= @search %>" id="search">
+			<% if @search && @search != "" %>
+			<a href="/" class="button reset">x</a>
+			<% end %>
+		</fieldset>
+		
+	</form>
+</div>
+<% if @items.count == 0 %>
+	<p class="info">No items matched your search terms</p>
+<% else %>
+<ul>
+<% @items.each do |item| %>
+  <li><a class="popover" href="#"><%= item.name %></a><a class="box_number" href="/boxes/<%= item.box %>"><%= item.box %></a></li>
+<% end %>
+</ul>
+<% end %>
