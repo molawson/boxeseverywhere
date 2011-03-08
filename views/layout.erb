@@ -2,39 +2,21 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=320, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="apple-touch-startup-image" href="/startup.png">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<title><%= @title + " | " if @title %>Boxes Everywhere</title>
+		<title>Boxes Everywhere</title>
 		<link rel="stylesheet" href="/css/reset.css" type="text/css">
 		<link rel="stylesheet" href="/css/style.css" type="text/css">
-		<script type="text/javascript" charset="utf-8">
-			addEventListener("load", function() {
-				setTimeout(hideURLbar, 0); 
-			}, false);
-			
-			function hideURLbar() {
-				// window.scrollTo(0,1);
-			}
-		</script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/js/application.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
-		<div id="header">
-			<div class="wrapper">
-				
-				<h1><%= @title || "Boxes Everywhere" %></h1>
-				
-				<% yield_content :tabbed_nav %>
-				
-			</div><!-- end wrapper -->
-		</div><!-- end header -->
+		<div id="main">
+			<%= yield %>
+		</div>
 		
-		<div id="content">
-			<div class="wrapper">
-				
-				<%= yield %>
-
-			</div><!-- end wrapper -->
-		</div><!-- end content -->
-
 		<div id="footer">
 			<div class="wrapper">
 				

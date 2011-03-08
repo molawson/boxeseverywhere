@@ -1,6 +1,20 @@
-<a href="<%= request.referrer %>" class="button back">&larr; Back</a>
-<ul>
-	<% @items.each do |item| %>
-		<li><%= item.name %></li>
-	<% end %>
-</ul>
+<div id="header">
+	<div class="wrapper">
+						
+		<h1><%= @title %></h1>
+				
+	</div><!-- end wrapper -->
+</div><!-- end header -->
+
+<div id="content">
+	<div class="wrapper">
+		
+		<a href="/" class="button back get">&larr; Back</a>
+		<ul>
+			<% @items.each do |item| %>
+				<li><%= item.name %></li>
+			<% end %>
+		</ul>
+
+	</div><!-- end wrapper -->
+</div><!-- end content -->

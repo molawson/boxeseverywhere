@@ -1,17 +1,29 @@
-<% content_for :tabbed_nav do %>
-	<ul id="tabbed_nav">
-		<li><a href="/boxes">Boxes</a></li>
-	</ul>
-<% end %>
+<div id="header">
+	<div class="wrapper">
+						
+		<h1><%= @title %></h1>
+	
+		<ul id="tabbed_nav">
+			<li><a href="/boxes" class="get">Boxes</a></li>
+		</ul>
+		
+	</div><!-- end wrapper -->
+</div><!-- end header -->
 
-<form action="/items" method="post" accept-charset="utf-8">
-  <input type="text" name="item[name]" placeholder="Name" id="name">
-  <input type="tel" name="item[box]" placeholder="Box" id="box">
-	<input type="submit" value="Add" id="item_submit">
-</form>
-<a href="/" class="done">Done adding items</a>
-<ul>
-<% @items.each do |item| %>
-  <li><a class="popover" href="#"><%= item.name %></a><a class="box_number" href="/boxes/<%= item.box %>"><%= item.box %></a></li>
-<% end %>
-</ul>
+<div id="content">
+	<div class="wrapper">
+		
+		<form id="new_item" action="/items" method="post" accept-charset="utf-8">
+		  <input type="text" name="item[name]" placeholder="Name" id="name">
+		  <input type="tel" name="item[box]" placeholder="Box" id="box">
+			<input type="submit" value="Add" id="item_submit">
+		</form>
+		
+		<a href="/" class="done get">Done adding items</a>
+		
+		<div id="list_of_stuff">
+			<%= partial :items_list %>			
+		</div>
+		
+	</div><!-- end wrapper -->
+</div><!-- end content -->

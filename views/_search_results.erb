@@ -1,0 +1,9 @@
+<% if @items.count == 0 %>
+	<p class="info">No items matched your search terms</p>
+<% else %>
+<ul>
+<% @items.each do |item| %>
+  <li><a class="popover" href="#"><%= item.name %></a><a class="box_number get" href="/boxes/<%= item.box %>"><%= item.box %></a></li>
+<% end %>
+</ul>
+<% end %>
