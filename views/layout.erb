@@ -22,9 +22,8 @@
 				
 				<h1><%= @title || "Boxes Everywhere" %></h1>
 				
-				<% if @plus %>
-				<a class="plus" href="<%= @plus %>">+</a>				
-				<% end %>
+				<% yield_content :tabbed_nav %>
+				
 			</div><!-- end wrapper -->
 		</div><!-- end header -->
 		

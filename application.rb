@@ -1,5 +1,6 @@
 require "rubygems"
 require "sinatra"
+require "sinatra/content_for"
 require "lib/models"
 
 use Rack::Auth::Basic do |username, password|
@@ -8,7 +9,6 @@ end
 
 get '/' do
   @title = "Your Stuff"
-  @plus = '/items/new'
   @search = params[:search]
   if @search
     @items = Item.all(:conditions => ["name ILIKE ?", "%#{@search}%"], :order => [:name.asc])
@@ -28,6 +28,12 @@ post '/items' do
   if Item.create(params[:item])
     redirect '/items/new'
   end
+end
+
+get '/boxes' do
+  @title = "Boxes"
+  @boxes = Item.all(:fields => [:box], :unique => true, :order => [:box.asc])
+  erb :boxes
 end
 
 get '/boxes/:box' do

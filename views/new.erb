@@ -1,3 +1,9 @@
+<% content_for :tabbed_nav do %>
+	<ul id="tabbed_nav">
+		<li><a href="/boxes">Boxes</a></li>
+	</ul>
+<% end %>
+
 <form action="/items" method="post" accept-charset="utf-8">
   <input type="text" name="item[name]" placeholder="Name" id="name">
   <input type="tel" name="item[box]" placeholder="Box" id="box">

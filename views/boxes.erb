@@ -1,0 +1,11 @@
+<% content_for :tabbed_nav do %>
+	<ul id="tabbed_nav">
+		<li><a href="/">Your Stuff</a></li>
+	</ul>
+<% end %>
+
+<ul class="box_list">
+	<% @boxes.each do |box| %>
+	<li class="box_item"><a href="/boxes/<%= box.box %>"><%= box.box %></a></li>
+	<% end %>
+</ul>

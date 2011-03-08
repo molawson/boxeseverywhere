@@ -1,3 +1,10 @@
+<% content_for :tabbed_nav do %>
+	<ul id="tabbed_nav">
+		<li><a href="/boxes">Boxes</a></li>
+		<li><a href="/items/new"><strong>+</strong></a></li>
+	</ul>
+<% end %>
+
 <div id="search">
 	<form action="/" method="get" accept-charset="utf-8">
 		<fieldset>			
@@ -6,7 +13,6 @@
 			<a href="/" class="button reset">x</a>
 			<% end %>
 		</fieldset>
-		
 	</form>
 </div>
 <% if @items.count == 0 %>

@@ -49,28 +49,41 @@ p { margin-bottom: 8px; }
   margin-right: 4px;
 }
 
-#header a.plus, #header a.plus:visited {
+#header ul#tabbed_nav {
   position: absolute;
   bottom: 0;
   right: 10px;
-  background: #f3f3f3;
+  overflow: hidden;
+}
+
+ul#tabbed_nav li {
+  float: left;
+}
+
+ul#tabbed_nav li a, ul#tabbed_nav li a:visited {
+  float: left;
+  color: #efefef;
+  background: #888;
   display: block;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   padding: 3px 12px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  border: none;
+  margin: 0 3px;
+  z-index: 0;
 }
 
-#header a.plus:active { 
-  background-color: blue;
+ul#tabbed_nav a:active { 
+  background-color: #aaa;
   color: #fff;
 }
 
 #content { 
   background-color: #f3f3f3;
   padding: 18px 0 10px;
-  box-shadow: 0 0 8px #000;
+  box-shadow: -10px -10px 5px #888;
 }
 
 a.done {
@@ -112,6 +125,7 @@ fieldset { position: relative; }
 input[type="text"], input[type="tel"], input[type="submit"] {
   height: 24px; 
   margin-bottom: 8px;
+  border-radius: 5px;
 }
 
 input#search { width: 96%; }
@@ -126,7 +140,7 @@ p.info {
   margin: 10px;
 }
 
-ul li {
+#content ul li {
   clear: both;
   padding: 0 8px;
   height: 36px;
@@ -137,20 +151,20 @@ ul li {
   background-color: #fff;
 }
 
-ul li:first-child { 
+#content ul li:first-child { 
   border-top: 1px solid #ccc;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 
-ul li:last-child { 
+#content ul li:last-child { 
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 
-ul li { font-weight: bold; }
+#content ul li { font-weight: bold; }
 
-ul li a.box_number {
+#content ul li a.box_number {
   float: right;
   background: #afafaf;
   text-align: center;
@@ -158,7 +172,33 @@ ul li a.box_number {
   height: 24px;
   width: 28px;
   margin: 6px 0;
+  border-radius: 4px;
+  color: #fff;
+}
+
+#content ul.box_list {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  overflow: hidden;
+  padding: 8px 10px;
+}
+
+#content ul.box_list li.box_item {
+  border: none;
+  display: inline;
+  padding: 0;
+}
+
+#content ul.box_list li.box_item a {
+  display: inline-block;
+  background: #afafaf;
   text-align: center;
+  font-size: 18px;
+  line-height: 32px;
+  height: 32px;
+  width: 40px;
+  margin: 8px 6px;
   border-radius: 4px;
   color: #fff;
 }
