@@ -40,6 +40,13 @@ post '/items' do
   end
 end
 
+delete '/items/:id' do
+  item = Item.get(params[:id])
+  if item.destroy
+    "true"
+  end
+end
+
 get '/boxes' do
   @title = "Boxes"
   @boxes = Item.all(:fields => [:box], :unique => true, :order => [:box.asc])

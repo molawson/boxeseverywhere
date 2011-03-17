@@ -3,7 +3,10 @@
 <% else %>
 <ul>
 <% @items.each do |item| %>
-  <li><a class="popover" href="#"><%= item.name %></a><a class="box_number get" href="/boxes/<%= item.box %>"><%= item.box %></a></li>
+  <li class="has_popover">
+    <span class="pop_target"><%= item.name %></span><a class="box_number get" href="/boxes/<%= item.box %>"><%= item.box %></a>
+    <span class="popover"><a href="/items/<%= item.id %>" class="delete">Delete</a></span>
+  </li>
 <% end %>
 </ul>
 <% end %>
