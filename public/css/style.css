@@ -39,7 +39,7 @@ p { margin-bottom: 8px; }
 
 #header h1 span.box_number {
   display: inline-block;
-  background: #afafaf;
+  background: #888;
   color: #fff;
   height: 28px;
   line-height: 28px;
@@ -93,7 +93,7 @@ span.done {
 }
 
 span.done.pressed {
-  color: #015fe7;
+  color: #aaa;
 }
 
 span.button {
@@ -105,6 +105,12 @@ span.button {
   border: 1px solid #999;
   border-radius: 5px;
   padding: 6px 10px;
+}
+
+span.button.pressed {
+  background: #e3e3e3;
+  color: #999;
+  border: 1px solid #aaa;
 }
 
 span.back {
@@ -170,13 +176,18 @@ p.info {
 
 #content ul li span.box_number {
   float: right;
-  background: #afafaf;
+  background: #888;
   text-align: center;
   line-height: 24px;
   height: 24px;
   width: 28px;
   margin: 6px 0;
   border-radius: 4px;
+  color: #fff;
+}
+
+#content ul li span.box_number.pressed { 
+  background: #aaa;
   color: #fff;
 }
 
@@ -190,7 +201,7 @@ p.info {
 
 #content ul.box_list li.box_item {
   display: inline-block;
-  background: #afafaf;
+  background: #888;
   text-align: center;
   font-size: 18px;
   line-height: 32px;
@@ -201,6 +212,11 @@ p.info {
   border: none;
   border-radius: 4px;
   color: #fff;
+}
+
+#content ul.box_list li.box_item.pressed {
+  color: #fff;
+  background: #aaa;
 }
 
 span.popover {
