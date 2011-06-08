@@ -4,7 +4,7 @@
 <ul>
 <% @items.each do |item| %>
   <li class="has_popover">
-    <span class="pop_target"><%= item.name %></span><a class="box_number get" href="/boxes/<%= item.box %>"><%= item.box %></a>
+    <span class="pop_target"><%= item.name %></span><span class="box_number get" data-location="/boxes/<%= item.box %>"><%= item.box %></span>
     <span class="popover"><a href="/items/<%= item.id %>" class="delete">Delete</a></span>
   </li>
 <% end %>

@@ -2,6 +2,30 @@ jQuery.ajaxSetup({
 	"beforeSend": function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")} 
 })
 
+$.fn.extend({
+  // use touch events to simulate clicks (much more responsive)
+  quickClick: function(callback) {
+    this.live('touchstart', function(e) {
+  	  moved = false;
+  	  $(this).addClass('pressed');
+  		$(this).bind('touchmove', function() {
+  		  moved = true;
+    	  $(this).removeClass('pressed');
+  		});
+  		$(this).bind('touchend', function(e) {
+  		  e.preventDefault();
+  		  $(this).unbind('touchend');
+  		  $(this).unbind('touchmove');
+    	  $(this).removeClass('pressed');
+  		  if (!moved) {
+  		    callback($(this));
+  		  }
+  		});
+  	});
+  } // end quickClick
+
+});
+
 function _ajax_request(url, data, callback, type, method) {
     if (jQuery.isFunction(data)) {
         callback = data;
@@ -27,25 +51,27 @@ jQuery.extend({
 
 $(document).ready(function() {
   
+  // show popovers
   $(".pop_target").live("touchstart", function(e) {
 		e.preventDefault();
 		$(".popover").hide();
     $(this).siblings(".popover").show();
   });
-
+  
+  // clear popovers when touching elsewhere
   $("#content").live("touchend", function(e) {
 		e.preventDefault();
     if (!$(e.target).hasClass("pop_target") && !$(e.target).hasClass("popover") && !$(e.target).parent().hasClass("popover")) {
 			$(".popover").hide();
 		}
   });
-
-	$(".popover a.delete").live("touchstart", function(e) {
-		e.preventDefault();
+	
+	// delete items via popover
+	$(".popover span.delete").quickClick(function(target) {
 		var really = confirm("Are you sure you want to delete this item?");
-		var parent = $(this).parents("li.has_popover");
+		var parent = target.parents("li.has_popover");
 		if (really) {
-			$.delete_($(this).attr("href"), $(this).serialize(), function(data) {
+			$.delete_(target.data('location'), target.serialize(), function(data) {
 				if (data) {
 					parent.remove();					
 				} else {
@@ -59,15 +85,13 @@ $(document).ready(function() {
 		return false;
 	})
   
-  $("a.get").live("touchstart", function(e) {
-		e.preventDefault();
-		$(this).addClass("pressed");
-    $.get($(this).attr("href"), $(this).serialize(), function (data) {
-      $("#main").html(data);
-    });
-    return false;
+  $('.get').quickClick(function(target) {
+    $.get(target.data('location'), null, function(data) {
+      $('#main').html(data);
+    });    
   });
   
+  // live search
   $("input#search").live("keyup", function() {
     var theForm = $(this).parents("form#search_form");
     $.post(theForm.attr("action"), theForm.serialize(), function(data) {
@@ -75,6 +99,7 @@ $(document).ready(function() {
     });
   });
   
+  // create items
   $("#new_item").live("submit", function() {
     $.post($(this).attr("action"), $(this).serialize(), function(data) {
       $("#list_of_stuff").html(data);

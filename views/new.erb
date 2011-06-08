@@ -4,7 +4,7 @@
 		<h1><%= @title %></h1>
 	
 		<ul id="tabbed_nav">
-			<li><a href="/boxes" class="get">Boxes</a></li>
+			<li class="get" data-location="/boxes">Boxes</li>
 		</ul>
 		
 	</div><!-- end wrapper -->
@@ -19,7 +19,7 @@
 			<input type="submit" value="Add" id="item_submit">
 		</form>
 		
-		<a href="/" class="done get">Done adding items</a>
+		<span class="done get" data-location="/">Done adding items</span>
 		
 		<div id="list_of_stuff">
 			<%= partial :items_list %>			

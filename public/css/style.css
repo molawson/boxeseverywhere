@@ -2,6 +2,7 @@ body {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	background-color: #f3f3f3;
+	-webkit-user-select: none;
 }
 
 a {
@@ -58,10 +59,6 @@ p { margin-bottom: 8px; }
 
 ul#tabbed_nav li {
   float: left;
-}
-
-ul#tabbed_nav li a, ul#tabbed_nav li a:visited {
-  float: left;
   color: #efefef;
   background: #888;
   display: block;
@@ -75,7 +72,7 @@ ul#tabbed_nav li a, ul#tabbed_nav li a:visited {
   z-index: 0;
 }
 
-ul#tabbed_nav a.pressed { 
+ul#tabbed_nav li.pressed { 
   background-color: #aaa;
   color: #fff;
 }
@@ -86,19 +83,20 @@ ul#tabbed_nav a.pressed {
   box-shadow: -10px -10px 5px #888;
 }
 
-a.done {
+span.done {
   display: inline-block;
+  color: #363636;
   font-size: 11px;
   font-weight: normal;
   text-decoration: underline;
   margin-bottom: 18px;
 }
 
-a.done.pressed {
+span.done.pressed {
   color: #015fe7;
 }
 
-a.button {
+span.button {
   display: inline-block;
   color: #888;
   font-size: 11px;
@@ -109,11 +107,11 @@ a.button {
   padding: 6px 10px;
 }
 
-a.back {
+span.back {
   margin-bottom: 18px;
 }
 
-a.reset {
+span.reset {
   width: 22px;
   height: 22px;
   line-height: 20px;
@@ -170,7 +168,7 @@ p.info {
 }
 
 
-#content ul li a.box_number {
+#content ul li span.box_number {
   float: right;
   background: #afafaf;
   text-align: center;
@@ -191,12 +189,6 @@ p.info {
 }
 
 #content ul.box_list li.box_item {
-  border: none;
-  display: inline;
-  padding: 0;
-}
-
-#content ul.box_list li.box_item a {
   display: inline-block;
   background: #afafaf;
   text-align: center;
@@ -205,6 +197,8 @@ p.info {
   height: 32px;
   width: 40px;
   margin: 8px 6px;
+  padding: 0;
+  border: none;
   border-radius: 4px;
   color: #fff;
 }
@@ -254,7 +248,7 @@ span.popover:after {
   bottom: -8px;
 }
 
-span.popover a {
+span.popover span {
   display: inline-block;
   color: #fff;
   font-size: 13px;
@@ -265,7 +259,7 @@ span.popover a {
   position: relative;
 }
 
-span.popover a.first { border-right: 1px solid #111; }
+span.popover span.first { border-right: 1px solid #111; }
 
 #footer {
   font-size: 10px;

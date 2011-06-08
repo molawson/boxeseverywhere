@@ -4,8 +4,8 @@
 		<h1><%= @title %></h1>
 		
 		<ul id="tabbed_nav">
-			<li><a class="get" href="/boxes">Boxes</a></li>
-			<li><a class="get" href="/items/new"><strong>+</strong></a></li>
+			<li class="get" data-location="/boxes">Boxes</li>
+			<li class="get" data-location="/items/new"><strong>+</strong></li>
 		</ul>
 		
 	</div><!-- end wrapper -->
@@ -18,9 +18,6 @@
 			<form id="search_form" action="/search" method="post" accept-charset="utf-8">
 				<fieldset>			
 					<input type="text" name="search" placeholder="Search" value="<%= @search %>" id="search">
-					<% if @search && @search != "" %>
-					<a href="/" class="button reset get">x</a>
-					<% end %>
 				</fieldset>
 			</form>
 		</div>

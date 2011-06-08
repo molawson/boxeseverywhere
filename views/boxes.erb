@@ -4,7 +4,7 @@
 		<h1><%= @title %></h1>
 		
 		<ul id="tabbed_nav">
-			<li><a href="/" class="get">Your Stuff</a></li>
+			<li class="get" data-location="/">Your Stuff</li>
 		</ul>
 				
 	</div><!-- end wrapper -->
@@ -15,7 +15,7 @@
 		
 		<ul class="box_list">
 			<% @boxes.each do |box| %>
-			<li class="box_item"><a href="/boxes/<%= box.box %>" class="get"><%= box.box %></a></li>
+			<li class="box_item get" data-location="/boxes/<%= box.box %>"><%= box.box %></li>
 			<% end %>
 		</ul>
 
