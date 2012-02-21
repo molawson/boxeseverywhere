@@ -1,7 +1,7 @@
 require "rubygems"
 require "sinatra"
 require "sinatra/content_for"
-require "lib/models"
+require "./lib/models"
 
 use Rack::Auth::Basic do |username, password|
   [username, password] == [ENV['ADMIN_USERNAME'], ENV['ADMIN_PASSWORD']]
