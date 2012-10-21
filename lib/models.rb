@@ -1,5 +1,5 @@
 require "rubygems"
-require "datamapper"
+require "data_mapper"
 
 # DataMapper::Logger.new($stdout, :debug)
 DataMapper.setup(:default, ENV['DATABASE_URL'])
